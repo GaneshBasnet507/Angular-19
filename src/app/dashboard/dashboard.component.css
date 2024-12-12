@@ -1,0 +1,40 @@
+mat-menu button.mat-menu-item {
+     padding: 10px 20px; 
+   
+      font-size: 14px; 
+     }
+   .menu{
+    cursor: pointer;
+    text-align: left;
+    border: none;
+    font-size: large;
+    size: 40px;
+    display:list-item;
+    border: none;
+    display: block;
+    background: none;
+    display: block;
+   }
+   button:hover{
+    background-color: aqua;
+   }
+   button{
+    display:block;
+    border: none;
+    background-color: none;
+    background: none;
+    padding: 10px;
+   }
+   .main-layout {
+     display: flex;
+     height: 100vh;
+      }
+   .content{
+    flex: 1; 
+    padding: 10px; 
+    overflow-y: auto;
+   }
+   
+  
+
+   

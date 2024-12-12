@@ -57,25 +57,35 @@ html, body {
     margin-bottom: 5px;
   }
   
-  input[type="text"], input[type="email"] {
-    width: calc(100% - 20px);
-    padding: 8px 10px;
+  input { width: calc(100% - 20px); 
+    padding: 8px 10px; 
     border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
+    border-radius: 5px; 
+    box-sizing: border-box; }
   
   button {
-    width: 20%;
-    padding-left: 10px;
+    width: 80%;
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     text-align: center;
     margin: 50px;
+    padding: 10px 10px; 
+    font-size: 18px; 
+    
   }
+  .email-contact { 
+    margin-top: 10px;
+     font-size: 16px; 
+     display: flex; 
+     align-items: center;
+      justify-content: center; 
+    } .email-contact i 
+    { 
+      margin-right: 5px; 
+    }
   button.show{
  
     float: right; 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="main-layout">
+<div class ="menu">
+<button mat-menu-item>
+        <mat-icon>notifications</mat-icon>
+        <span [routerLink]="['/dashboard/notifications']">notifications</span>
+    </button>
+     <button mat-menu-item>
+        <mat-icon>list</mat-icon>
+        <span [routerLink] = "['/dashboard/lists']">Lists</span>
+    </button>
+   <button mat-menu-item>
+    <mat-icon>home</mat-icon>
+    <span>home</span>
+   </button>
+   
+  </div>
+  <div class="content"> 
+    <router-outlet></router-outlet> 
+ </div>
+</div>
+</body>
+
+ 
+
+</html>
+  

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <p style="color:blue;">Login<p>
+    <p>Sign in to your account</p>
+
+    <div>
+      <label for="fullName">FullName:</label>
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        placeholder="Enter your fullname"
+        [(ngModel)]="user.fullName"
+        required
+        minlength="3"
+        pattern="^[A-Za-z]+$"
+        #fullName="ngModel"
+      />
+      <div *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)">
+        <div *ngIf="fullName.errors?.['required']">Name is required.</div>
+        <div *ngIf="fullName.errors?.['minlength']">Name must be at least 3 characters long.</div>
+        <div *ngIf="fullName.errors?.['pattern']">Name can only contain letters.</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="userName">Username:</label>
+      <input
+        type="text"
+        id="userName"
+        name="userName"
+        placeholder="Enter your username"
+        [(ngModel)]="user.userName"
+        required
+        minlength="3"
+        pattern="^[A-Za-z]+$"
+        #userName="ngModel"
+      />
+      <div *ngIf="userName.invalid && (userName.dirty || userName.touched)">
+        <div *ngIf="userName.errors?.['required']">Username is required.</div>
+        <div *ngIf="userName.errors?.['minlength']">Username must be at least 3 characters long.</div>
+        <div *ngIf="userName.errors?.['pattern']">Username can only contain letters.</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="address">Address:</label>
+      <input
+        type="text"
+        id="address"
+        name="address"
+        placeholder="Enter your address"
+        [(ngModel)]="user.address"
+        required
+        minlength="3"
+        pattern="^[A-Za-z]+$"
+        #address="ngModel"
+      />
+      <div *ngIf="address.invalid && (address.dirty || address.touched)">
+        <div *ngIf="address.errors?.['required']">Address is required</div>
+        <div *ngIf="address.errors?.['pattern']">Address can only contain letters.</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="phoneNo">Phone No:</label>
+      <input
+        type="text"
+        id="phoneNo"
+        name="phoneNo"
+        placeholder="Enter your phone number"
+        [(ngModel)]="user.phoneNo"
+        required
+        pattern="^98[0-9]{8}$"
+        #phoneNo="ngModel"
+      />
+      <div *ngIf="phoneNo.invalid && (phoneNo.dirty || phoneNo.touched)">
+        <div *ngIf="phoneNo.errors?.['required']">Phone number is required</div>
+        <div *ngIf="phoneNo.errors?.['pattern']">Phone number should be only ten digits</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+        [(ngModel)]="user.email"
+        required
+        #email="ngModel"
+      />
+      <div *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div *ngIf="email.errors?.['required']">Email is required</div>
+        <div *ngIf="email.errors?.['email']">Email must be a valid email address</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter a strong password"
+        [(ngModel)]="user.password"
+        required
+        #password="ngModel"
+      />
+      <div *ngIf="password.invalid && (password.dirty || password.touched)">
+        <div *ngIf="password.errors?.['required']">Password is required</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="confirmPassword">Confirm Password:</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        name="confirmPassword"
+        placeholder="Confirm your password"
+        required
+      />
+      <div >Confirm password is required</div>
+    </div>
+
+    <p>Forgot <a href="#" value="username">username</a> or <a href="#" value="password">password</a>?</p>
+
+    <button type="submit">Register</button>
+  
+  </form>
+</body>
+</html>
