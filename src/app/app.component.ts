@@ -5,14 +5,16 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { response } from 'express';
 import { RouterOutlet } from '@angular/router';
+import { SimpleComponent } from './simple/simple.component';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, CommonModule,RouterOutlet],
+  imports: [FormsModule, CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  isLoggedIn = false
   title = 'GaneshAngular_demo';
   student = { firstName: '', address: '',phoneNo: '',email:''};
   submitted = false;

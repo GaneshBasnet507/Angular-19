@@ -1,0 +1,42 @@
+
+<div class="header">
+    <h1>Dashboard</h1>
+  
+    <button id="Logout" (click)="onLogout()">Logout</button>
+ 
+  </div>
+
+
+  <div class="main-layout">
+    <div class="menu">
+      <button mat-menu-item>
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>list</mat-icon>
+        <span [routerLink]="['/protected-layout/lists']">Lists</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications</mat-icon>
+        <span [routerLink]="['/protected-layout/notifications']">Notifications</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>Create User</mat-icon>
+        <span [routerLink]="['/protected-layout/create-user']">Create User</span>
+      </button>
+      <button
+        class="changePassword"
+        onclick="window.location.href='change-password';"
+      >
+        Change Password
+      </button>
+    </div>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+     
+    </div>
+ 
+
+

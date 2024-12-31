@@ -1,45 +1,48 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, NgForm, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserService } from './register.service';
-import { debounceTime, switchMap, map } from 'rxjs/operators';
-import { Observable, forkJoin } from 'rxjs';
-import { CommonModule, NgIf } from '@angular/common';
+import { UserService  } from './register.service';
+import { FormsModule} from '@angular/forms';
+import { NgModel } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { NgIf } from '@angular/common';
+import { NgForm } from '@angular/forms';
+import { routes } from '../app.routes';
+import { Router } from '@angular/router';
+import { error } from 'console';
+import { response } from 'express';
+
+
 
 @Component({
-  selector: 'app-register',
-  standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  selector: 'app-login',
+  imports: [FormsModule,CommonModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  registerForm: FormGroup;
-  user = { fullName: '', userName: '', email: '', password: '', address: '', phoneNo: '' };
+  
+  user = { fullName: '',email:'',password:'',userName:'',phoneNo:'',address: '',role:''};
+  passwordFieldType: string = 'password';
+ constructor(private appService: UserService ,private router:Router)  {}
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
-    this.registerForm = this.fb.group({
-      fullName: ['', [Validators.required, Validators.minLength(3)]],
-      userName: ['', [Validators.required, Validators.minLength(3)]],
-      address: ['', [Validators.required, Validators.minLength(3)]],
-      phoneNo: ['', [Validators.required, Validators.pattern('^98[0-9]{8}$')]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      confirmPassword: ['', Validators.required]
-    });
-  }
-
-  onSubmit(form: NgForm): void {
-    this.userService.callApi(this.user).subscribe(
-      _response => {
-        alert('User successfully registered');
+  onSubmit(form: NgForm): void{
+    this.appService.callApi(this.user).subscribe(
+      (response) => {
+  
+        // alert('user successfully login');
+      
       },
-      error => {
-        if (error.status === 200) {
-          alert('User successfully registered');
-        } else {
-          alert('Error while registering: ' + error.message);
+      (error) => {
+        if (error.status === 200) { 
+           alert('user successfully Register');
+          
+        
+        }
+        else{
+        alert('Error while Register :');
         }
       }
     );
   }
+ 
 }
+  

@@ -212,7 +212,7 @@ select:focus{
     margin-top: 20px;
 }
 .btn + p + select {
-    margin-top: 300px; /* Adjust the value as needed */
+    margin-top: 300px; 
     text-decoration: none;
 }
 
@@ -230,7 +230,7 @@ select:focus{
 .page-btn span:hover{
     background-color: #ff523b;
 }
-/*single product details*/
+
 .col5{
     margin-bottom: 80px;
 }

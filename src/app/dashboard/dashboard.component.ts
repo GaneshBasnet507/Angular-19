@@ -5,11 +5,16 @@ import { MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { UserService } from './service';
 import { User } from '../lists/user.model';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgComponentOutlet } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { ListsComponent } from '../lists/lists.component';
 import { RouterLink } from '@angular/router';
-import { SideBarComponent } from "../side-bar/side-bar.component";
+import { response } from 'express';
+import { Router } from '@angular/router';
+import { CreateUserComponent } from '../create-user/create-user.component';
+import { ListsComponent } from '../lists/lists.component';
+
+
+
 
 
 @Component({
@@ -19,8 +24,9 @@ import { SideBarComponent } from "../side-bar/side-bar.component";
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent  implements OnInit{
-  users: User[] = []; 
-  constructor(private userService: UserService) {}
+
+  public users: User[] = []; 
+  constructor(private userService: UserService,private router:Router) {}
   ngOnInit(): void {
     this.userService.getUsers().subscribe(
       (data:User[])=>{
@@ -30,6 +36,23 @@ export class DashboardComponent  implements OnInit{
         console.error('Error occur',error);
       }
 
+    );
+  }
+  onLogout():void{
+    this.userService.logout().subscribe(
+      (response) => {
+        alert('Logout successful');
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        if(error.status==200){
+          alert('Logout successful');
+          this.router.navigate(['/']);
+        }
+        else{
+        alert('Error during logout: ' + error.message);
+        }
+      }
     );
   }
   

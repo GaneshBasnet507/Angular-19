@@ -24,24 +24,25 @@ export class LoginComponent {
  constructor(private appService: AppService ,private router:Router)  {}
  togglePasswordVisibility(): void { this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password'; }
 
-  onSubmit(form: NgForm): void{
-    this.appService.callApi(this.user).subscribe(
-      (response) => {
-  
-        // alert('user successfully login');
-      
-      },
-      (error) => {
-        if (error.status === 200) { 
-          // alert('user successfully login');
-          this.router.navigate(['/dashboard']);
+ onSubmit(form: NgForm): void {
+  this.appService.callApi(this.user).subscribe(
+    (response) => {
+      alert('User successfully logged in');
+   
+    },
+    (error) => 
+      { 
+        if(error.status === 200){
+          this.router.navigate(['/protected-layout']);
+
         }
-        else{
-        alert('Error while login :');
-        }
-      }
-    );
-  }
+      if (error.status === 401) {
+        alert('Error while login: ' + error.error);  
+      } 
+    }
+  );
+}
+
   onDelete(form:NgForm):void{
     this.appService.callApiDelete(this.user.email).subscribe(
       (response) => { alert('User successfully deleted');
@@ -55,7 +56,9 @@ export class LoginComponent {
           }
           else
           alert('Error while deleting user: ' + error.error.message); 
-        } ); }
+        } 
+      );
+     }
   
 }
   
