@@ -14,6 +14,8 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { PublicLayoutComponent } from './public-layout/public-layout.component';
 import { ProtectedLayoutComponent } from './protected-layout/protected-layout.component';
+import { BooksDetailsComponent } from './books-details/books-details.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 export const routes: Routes = [
@@ -44,7 +46,8 @@ export const routes: Routes = [
             { path: 'lists', component: ListsComponent },
             { path: 'notifications', component: NotificationsComponent },
             { path: 'create-user', component: CreateUserComponent },
-        
+            { path: 'books-details', component: BooksDetailsComponent },
+            { path: 'shopping-cart', component: ShoppingCartComponent },
           ],
         },
         

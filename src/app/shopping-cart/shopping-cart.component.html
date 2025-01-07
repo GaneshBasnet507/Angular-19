@@ -1,0 +1,67 @@
+
+<button class="add-book" [ngClass]="'add-book'" (click)="toggleAddBookForm()">
+  Add Book
+</button>
+
+<table  class="table">
+  <thead>
+     <tr > 
+      <th>user_iD</th>
+      <th>book</th>
+      <th>total_amount</th>
+      <th>Remove</th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr>
+
+
+        <!-- <td>
+          <button class="update-btn" [ngClass]="'update-form-container'"  (click)="selectedBook = Book">Update</button>
+        </td> -->
+        <!-- <td>
+          <button (click)="onDelete(Book.id)">Delete</button>
+        </td> -->
+      </tr>
+    </tbody>
+  </table>
+<div *ngIf="showAddBookForm">
+<h3>Add Book</h3>
+  <form class="add-book"#addBook="ngForm" (ngSubmit)="onAddBook(addBook)"> 
+    <label for="title">title:</label>
+    <input id="title" [(ngModel)]="Book.title" name="title" required /> <br> 
+    <!-- <label for="author">author:</label>
+    <input id="author" [(ngModel)]="Book.author" name="author" required /> <br>
+
+    <label for="genre">genre:</label> 
+    <input id="genre" [(ngModel)]="Book.genre" name="genre" required /><br>
+
+    <label for="price">price:</label> 
+    <input id="price" [(ngModel)]="Book.price" name="price" required  /><br>
+
+    <label for="quantity">quantity:</label> 
+    <input id="quantity" [(ngModel)]="Book.quantity" name="quantity" required  /> <br> -->
+    <button type="submit">Submit</button>
+  </form>
+</div>
+<!-- <div *ngIf="selectedBook" >
+  <h3>Update User</h3>
+  <form class="updateForm" #updateForm="ngForm" (ngSubmit)="onUpdate(updateForm)"> 
+    <label for="title">title:</label>
+    <input id="title" [(ngModel)]="selectedBook.title" name="title" required /> 
+
+    <label for="author">author:</label> 
+    <input id="author" [(ngModel)]="selectedBook.author" name="author" required />
+
+    <label for="genre">genre:</label> 
+    <input id="genre" [(ngModel)]="selectedBook.genre" name="genre" required readonly />
+
+    <label for="price">price:</label> 
+    <input id="price" [(ngModel)]="selectedBook.price" name="price" required  /> 
+
+    <label for="quantity">quantity:</label> 
+    <input id="quantity" [(ngModel)]="selectedBook.quantity" name="quantity" required />  
+    <button type="submit">Save Changes</button>
+  </form>
+</div> -->
+

@@ -25,6 +25,14 @@
         <mat-icon>Create User</mat-icon>
         <span [routerLink]="['/protected-layout/create-user']">Create User</span>
       </button>
+      <button mat-menu-item>
+        <mat-icon>Books</mat-icon>
+        <span [routerLink]="['/protected-layout/books-details']">Books</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>Carts</mat-icon>
+        <span [routerLink]="['/protected-layout/shopping-cart']">Books</span>
+      </button>
       <button
         class="changePassword"
         onclick="window.location.href='change-password';"

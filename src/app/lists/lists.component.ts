@@ -5,10 +5,6 @@ import { UserService } from './lists.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import * as XLSX from 'xlsx'
-import { ViewEncapsulation } from '@angular/core';
-import { EMPTY } from 'rxjs';
-import { response } from 'express';
-
 
 
 @Component({
