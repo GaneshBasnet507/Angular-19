@@ -6,24 +6,30 @@
 <table  class="table">
   <thead>
      <tr > 
-      <th>user_iD</th>
-      <th>book</th>
+      <th>iD</th>
       <th>total_amount</th>
+      <th>user_id</th>
+      <th>title</th>
       <th>Remove</th>
-    </tr>
+      <th>Clear</th>
+  </tr>
   </thead>
     <tbody>
       <tr>
-
-
-        <!-- <td>
-          <button class="update-btn" [ngClass]="'update-form-container'"  (click)="selectedBook = Book">Update</button>
-        </td> -->
-        <!-- <td>
-          <button (click)="onDelete(Book.id)">Delete</button>
-        </td> -->
-      </tr>
-    </tbody>
+        <tr *ngFor="let Cart of carts ">
+          <td>{{ Cart.id }}</td>
+          <td>{{ Cart.total_amount }}</td>
+          <td>{{ Cart.user_id }} </td>
+          <td>{{ Cart.title }} </td>
+          <!-- <td>{{ Book.quantity }}</td> -->
+          <td>
+            <button (click)="onRemove(Cart.title)">Remove-Book</button>
+          </td>
+          <!-- <td>
+            <button (click)="onClear(Book.title)">Clear</button>
+          </td> -->
+        </tr>
+      </tbody>
   </table>
 <div *ngIf="showAddBookForm">
 <h3>Add Book</h3>

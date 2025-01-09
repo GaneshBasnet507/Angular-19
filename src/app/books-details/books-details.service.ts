@@ -6,7 +6,7 @@ import { Book } from '../books-details/book.model';
     providedIn:'root'
 })
 export class BookService{
-    private url = 'http://localhost:9090/books/get-books';
+    private url = 'http://localhost:9090/books/books';
     private apiUrl = 'http://localhost:9090/books/search';
     constructor(private http:HttpClient){}
     callApi(Book: any): Observable<any> {

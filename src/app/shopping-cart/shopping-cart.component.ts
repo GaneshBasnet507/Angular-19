@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CartService } from './service';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Cart } from './cart.model';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -11,21 +12,40 @@ import { CommonModule } from '@angular/common';
 })
 export class ShoppingCartComponent {
     Book = {title:''};
+    carts: Cart[] = []; 
     showAddBookForm: boolean = false;
    
      constructor(private cartService: CartService) {}
-    //  ngOnInit():void{
-    //   this.bookService.getBooks().subscribe(
-    //     (data:Book[])=>{
-    //       this.books=data;
-    //       this.onSearchTableShow = true;
-    //     },
-    //     error => {
-    //       console.error('Error occur',error);
-    //     }
-  
-    //   );
-    // }
+      ngOnInit():void{
+         this. cartService.getCarts().subscribe(
+           (data:Cart[])=>{
+             this.carts=data;
+             console.log(this.carts);
+        
+           },
+           error => {
+             console.error('Error occur',error);
+           }
+     
+         );
+       }
+       onRemove(title:string):void{
+        this.cartService.callApiRemoveCart(title).subscribe(
+          (response) => { alert('User successfully Remove cart');
+    
+           }, 
+           (error) => 
+            { 
+              if(error.status === 200){
+                alert('user delete successfully');
+    
+              }
+              if (error.status === 401) {
+                alert('Error while login: ' + error.error);  
+              } 
+            } 
+          ); 
+        }
     toggleAddBookForm() {
       console.log('Toggling form visibility');
       this.showAddBookForm = true;
