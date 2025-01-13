@@ -17,7 +17,7 @@ export class BookService{
               return this.http.get<Book[]>(this.url);
           }
      callApiUpdate(Book: any):Observable<any>{
-            return this.http.post(`http://localhost:9090/books/update`,Book,{ withCredentials: true });
+            return this.http.put(`http://localhost:9090/books/update`,Book,{ withCredentials: true });
           }
     callApiDelete(id:number):Observable<any>{
         return this.http.delete(`http://localhost:9090/books/delete?id=${id}`,{ withCredentials: true });

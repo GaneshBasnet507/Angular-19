@@ -66,15 +66,15 @@ export class BooksDetailsComponent {
           } else {
             this.books = [];
             this.onSearchTableShow = false; 
-            alert("User not found"); 
+            alert("Book not found"); 
           }
         },
-        (error) => {
-          console.error('Error fetching user data', error.message || error);
-          alert('An error occurred while searching');
-        }
-      );
-    } else {
+          // (error) => {
+          //   console.error('Error fetching book data', error.message || error);
+          //   alert('An error occurred while searching');
+          // }
+        );
+      } else {
       this.bookService.getBooks().subscribe(
         (data: Book[]) => {
           this.books = data;
@@ -96,7 +96,7 @@ export class BooksDetailsComponent {
         },
         (error) => {
           if (error.status === 200) {
-            alert('User successfully updated');
+            alert('Book successfully updated');
           } else {
             alert('Error while updating user: ' + error.error.message);
           }
